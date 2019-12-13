@@ -1,0 +1,7 @@
+html,body{
+    background-image: url(/static/imgs/Books.jpg);
+    background-size: cover;
+    background-repeat: repeat-y;
+    height: 100%;
+    }
+

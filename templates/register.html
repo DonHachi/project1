@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+</head>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <span>{{ message }}</span>
+            <a href="\">Return to sign in</a>
+        </div>
+    {% endfor %}
+{% else %}
+<div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <form action="\registerUser" method="post">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Registration</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username">
+                            <small class="form-text text-muted">This is personal!</small>
+                        </div>
+    
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password">
+                            <small class="form-text text-muted">Dont forget it!</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <form>            
+                </div>
+        </div>
+    </div>
+{% endif %}
+{% endwith %}
+
+
+</html>

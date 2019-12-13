@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <title>Find a Book</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <form action="" method="post">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Search</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>ISBN, Title or Author</label>
+                            <input type="text" name="search_data">
+                            <small class="form-text text-muted">What are you looking for?</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <form>
+                            <a href="/logout" >Logout</a>
+                </div>
+        </div>
+    </div>
+
+        {% if results %}
+        {% for result in results %}
+        <div class="container">
+                    <form action="" method="post">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>{{ result.title }}</h4>
+                            </div>
+                            <div class="card-body">
+                                <h4>Author: {{result.author}}</h1>
+                                <h4>ISBN: {{result.isbn}}</h1>
+                                <a href="search/{{result.isbn}}">Link to Book</a>
+                            </div>
+                            <form>
+                        </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+        {% if results == [] %}
+        <div class="container">
+                <div class="d-flex justify-content-center h-100">
+                    <form action="" method="post">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>No related books</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1>Nothing to see here!</h1>
+                            </div>
+                            <form>
+                        </div>
+                </div>
+            </div>
+        {% endif %}
+</body>
+
+</html>

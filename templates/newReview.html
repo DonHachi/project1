@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <title>{{book.title}}</title>
+</head>
+
+<body>
+    <form action="\subReview/{{isbn}}" method="post">
+        <div class="card">
+            <div class="card-header">
+                <h4>New Review for : {{book.title}}</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Enter a rating 1-5</label>
+                    <input type="number" name="rating" placeholder="">
+                </div>
+                <div class="form-group">
+                        <label>Enter a review</label>
+                    <input type="text" name="review" placeholder="">
+                </div>
+                <button>Submit</button>
+            </div>
+            <form>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <span>{{ message }}</span>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+</body>
